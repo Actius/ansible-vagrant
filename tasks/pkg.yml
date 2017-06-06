@@ -5,3 +5,25 @@
   package:
     name: /tmp/{{vagrant_pkg}}
     state: present
+
+- name: Install Vagrant libvirt Plugin (latest)
+  become: yes
+  become_user: root
+  shell: vagrant plugin install vagrant-libvirt
+  args:
+    executable: /bin/bash
+  register: result
+  when: ansible_lsb.major_release|int >= 7
+
+- name: Install Vagrant libvirt Plugin (0.0.35)
+  become: yes
+  become_user: root
+  shell: vagrant plugin install vagrant-libvirt --plugin-version 0.0.35
+  args:
+    executable: /bin/bash
+  register: result
+  when: ansible_lsb.major_release|int < 7
+
+#- debug:
+#    var: result
+

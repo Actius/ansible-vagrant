@@ -2,8 +2,14 @@
 vagrant_pkg_mgr: pkg
 vagrant_pkg_suffix: rpm
 vagrant_libvirt_dep_pkgs:
+  - qemu-kvm
+  - libvirt
+  - libvirt-devel
+  - ruby
+  - ruby-devel
+  - rubygems
+  - gcc
   - libxslt-devel
   - libxml2-devel
-  - libvirt-devel
   - libguestfs-tools-c
-  - ruby-devel
+
